@@ -2,11 +2,21 @@ package Task1;
 
 import java.util.Arrays;
 
-public class Dog extends Pet {
+public final class Dog extends Pet {
     private String name;
     private String breed;
     private String[] commands;
 
+    //Constructor with default values
+    public Dog() {
+        name = "Vasya";
+        breed = "Bulldog";
+        commands = new String[]{"Play", "Sleep"};
+        super.setShelter(new Shelter("Bahnhof", "GebirgStrasse 7"));
+        super.setColor(Color.WHITE);
+    }
+
+    //Constructor with all fields
     public Dog(String name, String breed, String[] commands, Shelter shelter, Color color) {
         this.name = name;
         this.breed = breed;
@@ -15,6 +25,7 @@ public class Dog extends Pet {
         super.setColor(color);
     }
 
+    //Constructor with all fields except commands
     public Dog(String name, String breed, Shelter shelter, Color color) {
         this.name = name;
         this.breed = breed;
@@ -47,7 +58,7 @@ public class Dog extends Pet {
     }
 
     @Override
-    public String toString() {
+    public final String toString() {
         String s = "";
 
         if (commands != null) {

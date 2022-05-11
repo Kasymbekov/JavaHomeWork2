@@ -2,6 +2,7 @@ package Task4.HomeWork;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class Main {
@@ -38,5 +39,9 @@ public class Main {
             listC.add(listB.get(i));
         }
         System.out.println("List C - " + listC);
+
+        //Sort elements from List C by length
+        listC.sort(Comparator.comparing(String::length));
+        System.out.println("Sorted list C by length of the word - " + listC);
     }
 }
